@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@drawable/main">
 
@@ -19,7 +20,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/axam_string"
+        tools:text="@string/axam_string"
         android:textColor="#000"/>
     <View
         android:layout_margin="5dp"
@@ -40,7 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="这个标志是何含义？"
+            tools:text="这个标志是何含义？"
             android:textSize="15dp"
             android:textColor="#000"/>
 
@@ -50,7 +51,7 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/zixingche"
+        tools:background="@drawable/zixingche"
         android:layout_gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,7 +67,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="禁止自行车通行车道"
+            tools:text="禁止自行车通行车道"
             android:textSize="10dp"
             android:textColor="#000"/>
     </LinearLayout>
@@ -84,7 +85,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="非机动车车道"
+            tools:text="非机动车车道"
             android:textSize="10dp"
             android:textColor="#000"/>
 
@@ -98,12 +99,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="C."
-            android:textSize="20dp"
+            android:textSize="10dp"
             android:textColor="#000"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="自行车专用车道"
+            tools:text="自行车专用车道"
             android:textSize="10dp"
             android:textColor="#000"/>
 
@@ -122,7 +123,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="停放自行车路段"
+            tools:text="停放自行车路段"
             android:textSize="10dp"
             android:textColor="#000"/>
 
