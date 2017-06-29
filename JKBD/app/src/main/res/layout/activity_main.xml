@@ -18,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="随机测试"
+        android:onClick="text"
         tools:layout_editor_absoluteX="78dp"
         tools:layout_editor_absoluteY="145dp"
         android:drawableTop="@drawable/main_menu_exam"
@@ -53,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="退出"
+        android:onClick="exit"
         android:drawableTop="@drawable/main_menu_exit"
         android:background="@null"
         android:layout_weight="1"/>
