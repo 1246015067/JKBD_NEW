@@ -37,7 +37,7 @@ public class reslust {
         return results;
     }
 
-    public void setResults(List<reslust> results) {
+    public void setResults(List<information> list) {
         this.results = results;
     }
 }
