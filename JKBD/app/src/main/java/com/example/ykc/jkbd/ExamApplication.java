@@ -18,6 +18,9 @@ import java.util.List;
  */
 
 public class ExamApplication  extends Application{
+    public static String LOAD_EXAM_INFO="load_exam_info";
+    public static String LOAD_EXAM_QUESTION="load_exam_questions";
+    public static String LOAD_DATA_SUCCESS="load_data_success";
     information in;
     private static ExamApplication instance;
     List<Question> QuestionList;
@@ -27,8 +30,6 @@ public class ExamApplication  extends Application{
     public void onCreate() {
         super.onCreate();
         instance=this;
-        biz=new ExamBiz();
-        initData();
     }
 
     public information getIn() {
@@ -49,57 +50,5 @@ public class ExamApplication  extends Application{
     public  static  ExamApplication getInsance(){
         return  instance;
     }
-    private void initData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                biz.beginExam();
-//
-//        OkHttpUtils<information> utils=new OkHttpUtils<>(instance);
-//        String uru="http://101.251.196.90:8080/JztkServer/examInfo";
-//        utils.url(uru).targetClass(information.class)
-//                .execute(new OkHttpUtils.OnCompleteListener<information>() {
-//                    @Override
-//                    public void onSuccess(information result) {
-//                        Log.e("main","result="+result);
-//                        in=result;
-//                    }
-//
-//                    @Override
-//                    public void onError(String error) {
-//                        Log.e("main","error="+error);
-//
-//                    }
-//                });
-//
-//                OkHttpUtils<String> utils1=new OkHttpUtils<>(instance);
-//                String url2="http://101.251.196.90:8080/JztkServer/getQuestions?testType=rand";
-//                utils1.url(url2)
-//                        .targetClass(String.class)
-//                        .execute(new OkHttpUtils.OnCompleteListener<String>() {
-//
-//                    @Override
-//                    public void onSuccess(String jsonStr) {
-//                        reslust re = ResultUtils.getListResultFromJson(jsonStr);
-//                        if (re != null && re.getError_code() == 0) {
-//                           List<Question> list=re.getQuestion();
-//                            int i=re.getError_code();
-//                            Log.e("main","error="+i);
-//                            Log.e("main","error="+list);
-//                            if (list != null && list.size() > 0)
-//                                QuestionList = list;
-//
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(String error) {
-//                            Log.e("main","error="+error);
-//                    }
-//                });
 
-            }
-        }).start();
-
-    }
 }
