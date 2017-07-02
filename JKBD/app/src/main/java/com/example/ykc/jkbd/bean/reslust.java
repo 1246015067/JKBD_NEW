@@ -15,7 +15,7 @@ public class reslust {
 
     private int error_code;
     private String reason;
-    private List<reslust> results;
+    private List<Question> questions;
 
     public int getError_code() {
         return error_code;
@@ -33,11 +33,11 @@ public class reslust {
         this.reason = reason;
     }
 
-    public List<reslust> getResults() {
-        return results;
+    public List<Question> getQuestion() {
+        return questions;
     }
 
-    public void setResults(List<information> list) {
-        this.results = results;
+    public void setQuestion(List<Question> questions) {
+        this.questions = questions;
     }
 }

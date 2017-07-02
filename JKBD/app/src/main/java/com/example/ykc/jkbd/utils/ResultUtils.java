@@ -10,8 +10,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.ykc.jkbd.bean.information;
+import com.example.ykc.jkbd.bean.Question;
 import com.example.ykc.jkbd.bean.reslust;
+
 
 
 public class ResultUtils {
@@ -35,25 +36,25 @@ public class ResultUtils {
             if(!jsonObject.isNull("result")) {
                 JSONArray array = jsonObject.getJSONArray("result");
                 if (array != null) {
-                    List<information> list = new ArrayList<information>();
+                    List<Question> list = new ArrayList<Question>();
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonGroupAvatar = array.getJSONObject(i);
-                        information ga = new Gson().fromJson(jsonGroupAvatar.toString(), information.class);
+                        Question ga = new Gson().fromJson(jsonGroupAvatar.toString(), Question.class);
                         list.add(ga);
                     }
-                    result.setResults(list);
+                    result.setQuestion(list);
                     return result;
                 }
             }else{
                 JSONArray array = new JSONArray(jsonStr);
                 if (array != null) {
-                    List<information> list = new ArrayList<information>();
+                    List<Question> list = new ArrayList<Question>();
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonGroupAvatar = array.getJSONObject(i);
-                        information ga = new Gson().fromJson(jsonGroupAvatar.toString(), information.class);
+                        Question ga = new Gson().fromJson(jsonGroupAvatar.toString(), Question.class);
                         list.add(ga);
                     }
-                    result.setResults(list);
+                    result.setQuestion(list);
                     return result;
                 }
             }

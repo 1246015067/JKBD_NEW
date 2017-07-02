@@ -39,8 +39,7 @@ public class Question {
         return question;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestion(String question) { this.question = question;
     }
 
     public String getAnswer() {

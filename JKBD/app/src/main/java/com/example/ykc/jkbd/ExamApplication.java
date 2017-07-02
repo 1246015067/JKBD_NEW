@@ -1,9 +1,6 @@
 package com.example.ykc.jkbd;
 
 import android.app.Application;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.media.MediaBrowserServiceCompat;
 import android.util.Log;
 
 import com.example.ykc.jkbd.bean.Question;
@@ -14,16 +11,15 @@ import com.example.ykc.jkbd.utils.ResultUtils;
 
 import java.util.List;
 
-import static android.R.id.list;
-
 /**
  * Created by Administrator on 2017/6/30.
  */
 
 public class ExamApplication  extends Application{
     information in;
-    List<information>informationList;
     private static ExamApplication instance;
+    List<Question> QuestionList;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -40,12 +36,12 @@ public class ExamApplication  extends Application{
         this.in = in;
     }
 
-    public List<information> getInformationList() {
-        return informationList;
+    public List<Question> getQuestionList() {
+        return QuestionList;
     }
 
-    public void setInformationList(List<information> informationList) {
-        this.informationList = informationList;
+    public void setInformationList(List<Question> QuestionList) {
+        this.QuestionList = QuestionList;
     }
     public  static  ExamApplication getInsance(){
         return  instance;
@@ -73,20 +69,23 @@ public class ExamApplication  extends Application{
                     }
                 });
 
-                OkHttpUtils<String> utils1=new OkHttpUtils<String>(instance);
-                String utils2="";
-                utils1.url(utils2);
-                utils1.targetClass(String.class);
-                utils1.execute(new OkHttpUtils.OnCompleteListener<String>() {
+                OkHttpUtils<String> utils1=new OkHttpUtils<>(instance);
+                String url2="http://101.251.196.90:8080/JztkServer/getQuestions?testType=rand";
+                utils1.url(url2)
+                        .targetClass(String.class)
+                        .execute(new OkHttpUtils.OnCompleteListener<String>() {
 
                     @Override
-                    public void onSuccess(String result) {
-                        reslust re = ResultUtils.getListResultFromJson(result);
+                    public void onSuccess(String jsonStr) {
+                        reslust re = ResultUtils.getListResultFromJson(jsonStr);
                         if (re != null && re.getError_code() == 0) {
-                           List<information> list=re.getResults();
-                            if (list != null && list.size() > 0) {
-                                informationList = list;
-                            }
+                           List<Question> list=re.getQuestion();
+                            int i=re.getError_code();
+                            Log.e("main","error="+i);
+                            Log.e("main","error="+list);
+                            if (list != null && list.size() > 0)
+                                QuestionList = list;
+
                         }
                     }
 

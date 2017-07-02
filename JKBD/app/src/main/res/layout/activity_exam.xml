@@ -39,6 +39,7 @@
             android:textSize="15dp"
             android:textColor="#000"/>
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="这个标志是何含义？"
@@ -62,13 +63,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="A."
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:textColor="#000"/>
         <TextView
+            android:id="@+id/tv_op1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="禁止自行车通行车道"
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:textColor="#000"/>
     </LinearLayout>
     <LinearLayout
@@ -80,13 +82,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="B."
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:textColor="#000"/>
         <TextView
+            android:id="@+id/tv_op2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="非机动车车道"
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:textColor="#000"/>
 
     </LinearLayout>
@@ -99,13 +102,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="C."
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:textColor="#000"/>
         <TextView
+            android:id="@+id/tv_op3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="自行车专用车道"
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:textColor="#000"/>
 
     </LinearLayout>
@@ -118,13 +122,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="D."
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:textColor="#000"/>
         <TextView
+            android:id="@+id/tv_op4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="停放自行车路段"
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:textColor="#000"/>
 
     </LinearLayout>
