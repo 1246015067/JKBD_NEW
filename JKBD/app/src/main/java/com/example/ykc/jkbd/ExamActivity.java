@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.ykc.jkbd.bean.Question;
 import com.example.ykc.jkbd.bean.information;
 import com.example.ykc.jkbd.bean.reslust;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class ExamActivity extends AppCompatActivity {
         tv0p2 = (TextView) findViewById(R.id.tv_op2);
         tv0p3 = (TextView) findViewById(R.id.tv_op3);
         tv0p4 = (TextView) findViewById(R.id.tv_op4);
-//        Log.e("main","error="+tv0p1);
+        mImageView=(ImageView)findViewById(R.id.tv_image);
     }
 
     private void initData() {
@@ -59,6 +60,9 @@ public class ExamActivity extends AppCompatActivity {
             tv0p2.setText(exam.getItem2());
             tv0p3.setText(exam.getItem3());
             tv0p4.setText(exam.getItem4());
+            Picasso.with(ExamActivity.this)
+                    .load(exam.getUrl())
+                    .into(mImageView);
 
         }
     }
