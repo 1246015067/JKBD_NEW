@@ -1,12 +1,16 @@
 package com.example.ykc.jkbd.bzi;
 
+import com.example.ykc.jkbd.bean.Question;
+
 /**
  * Created by ykc on 2017/7/2.
  */
 
 public interface IExamBiz {
     void beginExam();
-    void nextQuestion();
-    void preQuestion();
+    Question getQuestion();
+    Question nextQuestion();
+    Question preQuestion();
     void commitExam();
+    String getExamIndex();
 }

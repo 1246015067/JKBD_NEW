@@ -16,6 +16,7 @@
         android:gravity="center" >
 
         <ProgressBar
+            android:id="@+id/load_dialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
@@ -55,6 +56,7 @@
         android:orientation="horizontal"
         android:layout_margin="5dp">
         <TextView
+            android:id="@+id/tv_exam_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1."
@@ -116,6 +118,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_03"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -136,6 +139,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/layout_04"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -161,21 +165,25 @@
         android:orientation="horizontal"
         android:layout_margin="10dp">
         <CheckBox
+            android:id="@+id/cb_01"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="A"
             android:layout_marginLeft="15dp"/>
         <CheckBox
+            android:id="@+id/cb_02"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="B"
             android:layout_marginLeft="15dp"/>
         <CheckBox
+            android:id="@+id/cb_03"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="C"
             android:layout_marginLeft="15dp"/>
         <CheckBox
+            android:id="@+id/cb_04"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="C"
@@ -189,7 +197,7 @@
 
 
         <Button
-            android:id="@+id/pre"
+           android:onClick="preExam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -201,7 +209,7 @@
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:onClick="nextExam"
             android:layout_alignParentRight="true"
             android:background="@null"
             android:drawableTop="@drawable/exam_next32x32"
