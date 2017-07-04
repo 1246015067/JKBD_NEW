@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -26,6 +27,7 @@ import com.example.ykc.jkbd.bean.information;
 import com.example.ykc.jkbd.bean.reslust;
 import com.example.ykc.jkbd.bzi.ExamBiz;
 import com.example.ykc.jkbd.bzi.IExamBiz;
+import com.example.ykc.jkbd.view.QuestionAdapter;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -44,6 +46,8 @@ public class ExamActivity extends AppCompatActivity {
     ProgressBar dialog;
     ImageView mImageView;
     IExamBiz biz;
+    Gallery gallery;
+    QuestionAdapter Adapter;
     boolean isLoadExamInfo=false;
     boolean isLoadQuestions=false;
 
@@ -94,6 +98,7 @@ public class ExamActivity extends AppCompatActivity {
         tv0p1 = (TextView) findViewById(R.id.tv_op1);
         tv0p2 = (TextView) findViewById(R.id.tv_op2);
         tv0p3 = (TextView) findViewById(R.id.tv_op3);
+        gallery= (Gallery) findViewById(R.id.gallery);
         cb_01= (CheckBox) findViewById((R.id.cb_01));
         cb_02= (CheckBox) findViewById((R.id.cb_02));
         cb_03= (CheckBox) findViewById((R.id.cb_03));
@@ -154,6 +159,7 @@ public class ExamActivity extends AppCompatActivity {
                     showData(examInfo);
                     initTime(examInfo);
                 }
+                initGallery();
                     showExam(biz.getQuestion());
 
             }
@@ -163,6 +169,11 @@ public class ExamActivity extends AppCompatActivity {
                 tv_load.setText("下载失败，点击重新下载");
             }
         }
+    }
+
+    private void initGallery() {
+        Adapter=new QuestionAdapter(this);
+        gallery.setAdapter(Adapter);
     }
 
     private void initTime(information examInfo) {
