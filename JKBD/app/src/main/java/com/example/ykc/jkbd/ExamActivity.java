@@ -180,7 +180,13 @@ public class ExamActivity extends AppCompatActivity {
             }else {
                 mImageView.setVisibility(View.GONE);
             }
+            resetDptions();
+        }
+    }
 
+    private void resetDptions() {
+        for(CheckBox d:cbs){
+            d.setChecked(false);
         }
     }
 
