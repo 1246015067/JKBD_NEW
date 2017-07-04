@@ -3,6 +3,7 @@ package com.example.ykc.jkbd;
 import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -232,11 +233,20 @@ public class ExamActivity extends AppCompatActivity {
     public void commit(View view) {
         saveUeserAnswer();
         int s= biz.commitExam();
+        View inflate=View.inflate(this,R.layout.layout_result,null);
+        TextView tvResult= (TextView) inflate.findViewById(R.id.tv_result);
+        tvResult.setText("你的分数为\n"+s+"分！");
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         builder.setIcon(R.drawable.exam_commit32x32)
                 .setTitle("交卷")
-                .setMessage("你的分数为\n"+s+"分！")
-                .setPositiveButton("OK",null);
+               // .setMessage("你的分数为\n"+s+"分！")
+                .setView(inflate)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
         builder.create().show();
     }
 

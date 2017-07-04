@@ -99,4 +99,12 @@ public class Question {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public String getUserAnswer() {
+        return userAnswer;
+    }
+
+    public void setUserAnswer(String userAnswer) {
+        this.userAnswer = userAnswer;
+    }
 }
