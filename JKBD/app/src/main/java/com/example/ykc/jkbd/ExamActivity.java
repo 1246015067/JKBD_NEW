@@ -181,12 +181,25 @@ public class ExamActivity extends AppCompatActivity {
                 mImageView.setVisibility(View.GONE);
             }
             resetDptions();
+            String userAnswer= questionList.getUserAnswer();
+            if(userAnswer!=null && !userAnswer.equals("")){
+                int usercb=Integer.parseInt(userAnswer)-1;
+                cbs[usercb].setChecked(true);
+            }
         }
     }
 
     private void resetDptions() {
         for(CheckBox d:cbs){
             d.setChecked(false);
+        }
+    }
+    private  void  saveUeserAnswer(){
+        for (int i=0;i<cbs.length;i++) {
+            if(cbs[i].isChecked()){
+                biz.getQuestion().setUserAnswer(String.valueOf(i+1));
+                return;
+            }
         }
     }
 
@@ -206,10 +219,12 @@ public class ExamActivity extends AppCompatActivity {
     }
 
     public void preExam(View view) {
+        saveUeserAnswer();
         showExam(biz.preQuestion());
     }
 
     public void nextExam(View view) {
+        saveUeserAnswer();
         showExam(biz.nextQuestion());
     }
 
