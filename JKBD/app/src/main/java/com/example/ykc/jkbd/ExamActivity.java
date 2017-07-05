@@ -44,6 +44,7 @@ public class ExamActivity extends AppCompatActivity {
 //    TextView tvExamInfo, tvExamTitle, tv0p1, tv0p2, tv0p3, tv0p4, tv_load, tv_no, tv_time;
 //    CheckBox cb_01, cb_02, cb_03, cb_04;
     CheckBox[] cbs = new CheckBox[4];
+    TextView[] tv0ps=new TextView[4];
 //    LinearLayout layoutmloading;
 //    //ProgressBar dialog;
 //    ImageView mImageView;
@@ -61,12 +62,12 @@ public class ExamActivity extends AppCompatActivity {
     @BindView(R.id.load_dialog) ProgressBar dialog;
     @BindView(R.id.tv_load)   TextView tv_load;
     @BindView(R.id.layout_loding)  LinearLayout layoutmloading;
-    @BindView(R.id.imageView)  ImageView mImageView;
+    //@BindView(R.id.imageView)  ImageView mImageView;
     @BindView(R.id.tv_exam)  TextView tvExamInfo;
     @BindView(R.id.tv_time)  TextView tv_time;
     @BindView(R.id.tv_exam_no)  TextView tv_no;
     @BindView(R.id.tv_title)  TextView tvExamTitle;
-    @BindView(R.id.tv_image)  ImageView tvImage;
+    @BindView(R.id.tv_image)  ImageView mImageView;
     @BindView(R.id.tv_op1)  TextView tv0p1;
     @BindView(R.id.tv_op2)  TextView tv0p2;
     @BindView(R.id.tv_op3)   TextView tv0p3;
@@ -134,6 +135,12 @@ public class ExamActivity extends AppCompatActivity {
        cbs[1] = cb_02;
        cbs[2] = cb_03;
        cbs[3] = cb_04;
+        tv0ps[0]=tv0p1;
+        tv0ps[1]=tv0p2;
+        tv0ps[2]=tv0p3;
+        tv0ps[3]=tv0p4;
+
+
 //        tv_load = (TextView) findViewById(R.id.tv_load);
 //        mImageView = (ImageView) findViewById(R.id.tv_image);
         layoutmloading.setOnClickListener(new OnClickListener() {
@@ -275,8 +282,36 @@ public class ExamActivity extends AppCompatActivity {
                 int usercb = Integer.parseInt(userAnswer) - 1;
                 cbs[usercb].setChecked(true);
                 setOptions(true);
+                setAnswerTextColor(userAnswer,questionList.getAnswer());
             } else {
                 setOptions(false);
+                setOptionsColor();
+            }
+        }
+    }
+
+    private void setOptionsColor() {
+        for (TextView tv0p:tv0ps) {
+            tv0p.setTextColor(getResources().getColor(R.color.black));
+        }
+    }
+
+    private void setAnswerTextColor(String userAnswer, String answer) {
+        int ra=Integer.parseInt(answer)-1;
+        for(int i=0;i<tv0ps.length;i++){
+            if(i==ra) {
+
+                tv0ps[i].setTextColor(getResources().getColor(R.color.greend));
+            }else {
+                if(!userAnswer.equals(answer)){
+                    int ua=Integer.parseInt(userAnswer)-1;
+                    if(i==ua){
+                        tv0ps[i].setTextColor(getResources().getColor(R.color.red));
+                    }
+                    else {
+                        tv0ps[i].setTextColor(getResources().getColor(R.color.black));
+                    }
+                }
             }
         }
     }
