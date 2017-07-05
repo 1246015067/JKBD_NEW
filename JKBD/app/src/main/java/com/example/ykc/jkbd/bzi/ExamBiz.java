@@ -38,6 +38,16 @@ public class ExamBiz implements IExamBiz{
             return null;
         }
     }
+    public Question getQuestion(int index) {
+        questionlist=ExamApplication.getInsance().getQuestionList();
+        examIndex=index;
+        if(questionlist!=null) {
+            return questionlist.get(examIndex);
+        }
+        else {
+            return null;
+        }
+    }
 
     @Override
     public Question nextQuestion() {
