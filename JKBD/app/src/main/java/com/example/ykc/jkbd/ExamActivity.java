@@ -245,10 +245,18 @@ public class ExamActivity extends AppCompatActivity {
             if(userAnswer!=null && !userAnswer.equals("")){
                 int usercb=Integer.parseInt(userAnswer)-1;
                 cbs[usercb].setChecked(true);
+                setOptions(true);
+            }
+            else {
+                setOptions(false);
             }
         }
     }
-
+    private  void  setOptions(boolean hasAnswer){
+        for (CheckBox cb:cbs) {
+            cb.setEnabled(!hasAnswer);
+        }
+    }
     private void resetDptions() {
         for(CheckBox d:cbs){
             d.setChecked(false);
